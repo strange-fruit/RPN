@@ -29,3 +29,10 @@ usage(){
 	echo -e "swap, swap the two last entry in the stack \n"
 	echo -e "dup, duplicate the last entry in the stack \n"
 }
+
+
+#clear stack. Reset it to 0
+clear_stack(){
+    stack=()
+}
+
