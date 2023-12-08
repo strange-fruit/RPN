@@ -129,6 +129,23 @@ while true; do
 		fi
 
 	;;
+    	"/"|"div")
+		#anti divide by 0 STDERR
+		if [ "${stack[-1]}" == 0 ]; then
+			echo "why the f@!# do u divide by 0 ??????"
+		fi
+
+		if [ ${#stack[@]} -ge 2 ]; then
+			# n-2 divided by -1
+			operand1="${stack[-2]}"
+			operand2="${stack[-1]}"
+			stack=("${stack[@]:0:(${#stack[@]}-2)}")
+			result=$(divide "$operand1" "$operand2")
+				stack+=("$result")
+		else
+			echo "Error : Insufficient operands for division"
+		fi
+	;;
     "%"|"m"|"modulo")
 		if [ ${#stack[@]} -ge 2 ]; then
 			# n-2 divided by n-1
