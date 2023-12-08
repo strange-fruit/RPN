@@ -128,6 +128,10 @@ while true; do
 				echo "Error : Insufficient operands for addition"
 		fi
 	;;
+    "sum"|"somme")
+    	sum
+	;;
+
     "dump"|"d"|"stack")
 		#tfor each elements in the stack
 		for item in "${stack[@]}"; do
