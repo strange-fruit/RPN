@@ -130,6 +130,11 @@ while true; do
 
    	#sum all the elements in the stack and push it to the stack
 	;;
+    "q"|"quit"|"exit")
+		echo -e "Exiting..........\n"
+		figlet "BYEBYE"
+		exit 0
+    ;;
     "sum"|"somme")
     	sum
 	;;
