@@ -128,6 +128,12 @@ while true; do
 				echo "Error : Insufficient operands for addition"
 		fi
 	;;
+    "dump"|"d"|"stack")
+		#tfor each elements in the stack
+		for item in "${stack[@]}"; do
+				echo "$item"
+		done
+    ;;
     "clear"|"drop")
 		clear_stack
 	;;
