@@ -105,7 +105,10 @@ while true; do
 	#takes user input. -e for history feature. -p for [+] >>>. -r for backslash as a part of the line, usage comes from history features
 	read -e -r -p "[+] >>> " input
 
-	
+	#arrow up and down feature 
+	#can't do arrow up when the last entry starts with '-' (minus)
+	#can't find solve but it adds the number to the stack except it gives me an error. STDERR to /dev/null for cool usage
+	history -s "$input" 2> /dev/null
 
 	case "$input" in
 	"+"|"add")
