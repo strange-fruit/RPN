@@ -105,7 +105,7 @@ while true; do
 	#takes user input. -e for history feature. -p for [+] >>>. -r for backslash as a part of the line, usage comes from history features
 	read -e -r -p "[+] >>> " input
 
-
+	
 
 	case "$input" in
 	"+"|"add")
@@ -133,6 +133,14 @@ while true; do
 	
 		#default
 		*)
-		
+		#STDERR
+		#rregex negative number and float
+		if [[ "$input" =~ ^-?[0-9]+(\.[0-9]+)?$ ]]; then
+			stack+=("$input")
+		else
+				echo -e "Error : Invalid input. Not an integer, float or a sign\n"
+				usage
+			fi
+        ;;
 	esac
 done
