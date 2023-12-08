@@ -58,3 +58,8 @@ divide(){
 	result=$(bc -l <<< "$1 / $2")
 	echo "$result"
 }
+
+modulo(){
+    result=$(bc -l <<< "$1 % $2")
+    echo "$result"
+}
