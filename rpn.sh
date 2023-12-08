@@ -63,3 +63,8 @@ modulo(){
     result=$(bc -l <<< "$1 % $2")
     echo "$result"
 }
+
+power(){
+    result=$(bc -l <<< "$1 ^ $2")
+    echo "$result"
+}
