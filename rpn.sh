@@ -129,6 +129,18 @@ while true; do
 		fi
 
 	;;
+    "-"|"sub"|"substract")
+		if [ ${#stack[@]} -ge 2 ]; then
+			operand1="${stack[-2]}"
+			operand2="${stack[-1]}"
+			stack=("${stack[@]:0:(${#stack[@]}-2)}")
+			result=$(substract "$operand1" "$operand2")
+			stack+=("$result")
+		#STDERR
+		else
+				echo "Error : Insufficient operands for subtraction."
+		fi
+	;;
     "*"|"mul"|"multiply")
 		if [ ${#stack[@]} -ge 2 ]; then
 			#last operand before + sign
