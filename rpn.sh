@@ -127,13 +127,15 @@ while true; do
 		else
 				echo "Error : Insufficient operands for addition"
 		fi
+
+   	#sum all the elements in the stack and push it to the stack
 	;;
     "sum"|"somme")
     	sum
 	;;
-
+	#stack dump in stdout
     "dump"|"d"|"stack")
-		#tfor each elements in the stack
+		#for each elements in the stack
 		for item in "${stack[@]}"; do
 				echo "$item"
 		done
