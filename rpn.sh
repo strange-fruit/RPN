@@ -53,3 +53,8 @@ multiply(){
 	result=$(bc -l <<< "$1 * $2")
 	echo "$result"
 }
+
+divide(){
+	result=$(bc -l <<< "$1 / $2")
+	echo "$result"
+}
