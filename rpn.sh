@@ -98,3 +98,41 @@ case $args in
 	usage
 	;;
 esac
+
+
+while true; do
+
+	#takes user input. -e for history feature. -p for [+] >>>. -r for backslash as a part of the line, usage comes from history features
+	read -e -r -p "[+] >>> " input
+
+
+
+	case "$input" in
+	"+"|"add")
+	#if stack >= 2 elements
+		if [ ${#stack[@]} -ge 2 ]; then
+			#last operand before + sign
+			operand1="${stack[-1]}"
+			operand2="${stack[-2]}"
+
+			#delete last two entry in the stack
+			# :0 means slicing slicing. Recreates the stack at the index 0. Deleting last two elements.
+			#${#stack[@]}-2 means delete last two elements
+			stack=("${stack[@]:0:(${#stack[@]}-2)}")
+
+			#add function use
+			result=$(add "$operand1" "$operand2")
+				stack+=("$result")
+
+		else
+				echo "Error : Insufficient operands for addition"
+		fi
+	;;
+	
+
+	
+		#default
+		*)
+		
+	esac
+done
