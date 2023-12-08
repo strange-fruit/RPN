@@ -128,6 +128,9 @@ while true; do
 				echo "Error : Insufficient operands for addition"
 		fi
 	;;
+    "clear"|"drop")
+		clear_stack
+	;;
     #duplicate the stack
 	"dup")
 		#check if the stack has at least one elements
@@ -139,7 +142,7 @@ while true; do
 			echo "Error : Insufficient operands for duplicate"
 		fi
 		;;
-        	
+
 		#default
 		*)
 		#STDERR
