@@ -129,6 +129,21 @@ while true; do
 		fi
 
 	;;
+    "*"|"mul"|"multiply")
+		if [ ${#stack[@]} -ge 2 ]; then
+			#last operand before + sign
+			operand1="${stack[-1]}"
+			operand2="${stack[-2]}"
+
+			stack=("${stack[@]:0:(${#stack[@]}-2)}")
+
+			result=$(multiply "$operand1" "$operand2")
+				stack+=("$result")
+		#STDERR
+		else
+			echo "Error : Insufficient operands for multiplication"
+		fi
+	;;
     	"/"|"div")
 		#anti divide by 0 STDERR
 		if [ "${stack[-1]}" == 0 ]; then
