@@ -128,13 +128,26 @@ while true; do
 				echo "Error : Insufficient operands for addition"
 		fi
 
-   	#sum all the elements in the stack and push it to the stack
+	;;
+    "^"|"power"|"**")
+		if [ ${#stack[@]} -ge 2 ]; then
+			# n-2 power n-1
+			operand1="${stack[-2]}"
+			operand2="${stack[-1]}"
+
+			stack=("${stack[@]:0:(${#stack[@]}-2)}")
+			result=$(power "$operand1" "$operand2")
+				stack+=("$result")
+		else
+			echo "Error : Insufficient operands for power"
+		fi
 	;;
     "q"|"quit"|"exit")
 		echo -e "Exiting..........\n"
 		figlet "BYEBYE"
 		exit 0
     ;;
+   	#sum all the elements in the stack and push it to the stack
     "sum"|"somme")
     	sum
 	;;
