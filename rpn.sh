@@ -129,6 +129,19 @@ while true; do
 		fi
 
 	;;
+    "%"|"m"|"modulo")
+		if [ ${#stack[@]} -ge 2 ]; then
+			# n-2 divided by n-1
+			operand1="${stack[-2]}"
+			operand2="${stack[-1]}"
+
+			stack=("${stack[@]:0:(${#stack[@]}-2)}")
+			result=$(modulo "$operand1" "$operand2")
+				stack+=("$result")
+		else
+			echo "Error : Insufficient operands for modulo"
+		fi
+	;;
     "^"|"power"|"**")
 		if [ ${#stack[@]} -ge 2 ]; then
 			# n-2 power n-1
