@@ -76,3 +76,15 @@ swap(){
 	stack[-1]="${stack[-2]}"
 	stack[-2]="${last[0]}"
 }
+
+#add all the element in the stack and push it 
+sum(){
+	local somme=0
+	#for all the elements in the stack
+	for element in "${stack[@]}";do
+		somme=$( ( bc -l <<< "$somme + $element"))
+	#add each elements
+	done
+	#push sum on the stack
+  	stack=("$somme")
+}
