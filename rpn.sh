@@ -88,3 +88,6 @@ sum(){
 	#push sum on the stack
   	stack=("$somme")
 }
+
+#stack declaration
+stack=()
