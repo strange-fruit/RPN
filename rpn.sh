@@ -68,3 +68,11 @@ power(){
     result=$(bc -l <<< "$1 ^ $2")
     echo "$result"
 }
+
+#swap the last two entry. N-2 become N-1 and N-1 become N-2
+swap(){	
+	#variable intermediaire
+	last=("${stack[-1]}")
+	stack[-1]="${stack[-2]}"
+	stack[-2]="${last[0]}"
+}
