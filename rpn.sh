@@ -49,3 +49,7 @@ substract(){
 	echo "$result"
 }
 
+multiply(){
+	result=$(bc -l <<< "$1 * $2")
+	echo "$result"
+}
