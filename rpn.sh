@@ -91,3 +91,10 @@ sum(){
 
 #stack declaration
 stack=()
+
+#usage when ./rpn.sh --help
+case $args in
+	"-h"|"--help")
+	usage
+	;;
+esac
