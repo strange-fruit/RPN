@@ -224,19 +224,15 @@ while true; do
     "swap")
 	    swap
 	;;
-		
     #duplicate the stack
 	"dup")
 		#check if the stack has at least one elements
 		if [ ${#stack[@]} -ge 1 ]; then
-			
 			stack+=("${stack[-1]}")
-
 		else
 			echo "Error : Insufficient operands for duplicate"
 		fi
 		;;
-
 		#default
 		*)
 		#STDERR
