@@ -44,5 +44,8 @@ add(){
 	echo "$result"
 }
 
-
+substract(){
+	result=$(bc -l <<< "$1 - $2")
+	echo "$result"
+}
 
