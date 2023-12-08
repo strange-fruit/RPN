@@ -36,3 +36,13 @@ clear_stack(){
     stack=()
 }
 
+
+add(){
+	#local variable
+	#float proof with bc utility
+	result=$(bc -l <<< "$1 + $2")
+	echo "$result"
+}
+
+
+
