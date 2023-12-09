@@ -12,8 +12,6 @@ BPurple='\033[1;35m'       # Purple
 BCyan='\033[1;36m'         # Cyan
 NC='\033[0m' # No Color
 
-args=@$
-
 #Usage function triggered when there's an error in user input
 usage(){
     echo -e "${BRed}[+]-----------------------------------[+]${NC}"
@@ -98,12 +96,7 @@ sum(){
 #stack declaration
 stack=()
 
-#usage when ./rpn.sh --help
-case $args in
-	"-h"|"--help")
-	usage
-	;;
-esac
+
 
 
 while true; do
