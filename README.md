@@ -248,7 +248,7 @@ Feel free to contribute. Do what you want with this project :)
 
   
 
-Distributed under the MIT License. See `LICENSE.txt` for more information.
+Distributed under the MIT License. See `LICENSE` for more information.
 
   
   
