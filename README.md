@@ -28,26 +28,27 @@ Raw BASH
 
 Download it :
 
-```bash
-git clone https://github.com/strange-fruit/RPN```
+```
+git clone https://github.com/strange-fruit/RPN 
+```
 
-```bash
+```
 cd RPN/```
 
-#### Prerequisites
+### Prerequisites
 
 You just need to install **bc** and **figlet**
 
-```bash
+```
 sudo apt install bc figlet
 ```
 
 Start the program
-  ```bash
+  ```
 bash rpn.sh
   ```
 or
-```bash
+```
 ./rpn.sh
 ```
 
