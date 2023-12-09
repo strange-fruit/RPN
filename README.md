@@ -26,9 +26,21 @@ Raw BASH
 
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
+Download it :
 
+```bash
+git clone https://github.com/strange-fruit/RPN```
+
+```bash
+cd RPN/```
+
+#### Prerequisites
+
+You just need to install **bc** and **figlet**
+
+```bash
+sudo apt install bc figlet
+```
 
 Start the program
   ```bash
@@ -39,15 +51,10 @@ or
 ./rpn.sh
 ```
 
-Make sure the program is executable
-
-### Installation
-
-You just need to install **bc** and **figlet**
-
+Make sure the program is executable, if not : 
 ```bash
-sudo apt install bc figlet
-```
+chmod +x rpn.sh```
+
 
 
 
