@@ -6,14 +6,10 @@
 figlet "GIT USER :)"
 
 #Color declaration
-Black='\033[0;30m'        # Black
 BRed='\033[1;31m'          # Red
-Green='\033[0;32m'        # Green
 BYellow='\033[1;33m'       # Yellow
-Blue='\033[0;34m'         # Blue
 BPurple='\033[1;35m'       # Purple
 BCyan='\033[1;36m'         # Cyan
-White='\033[0;37m'        # White
 NC='\033[0m' # No Color
 
 args=@$
@@ -22,7 +18,7 @@ args=@$
 usage(){
     echo -e "${BRed}[+]-----------------------------------[+]${NC}"
     echo -e "   Operators : +, -, *, /, %, ^\n"
-	echo -e "   Or : add, sub, mul, div, modulo, power, \n"
+	echo -e "   Or : add, sub, mul, div, modulo, power\n"
     echo -e "${BRed}[+]-----------------------------------[+]${NC}\n"
     echo -e "Commands : help, dump, drop, exit, swap, dup, clear\n"
     echo -e "Usage: ${BYellow}bash rpn.sh${NC}\n"
@@ -221,7 +217,9 @@ while true; do
     "sum"|"somme")
     	sum
 	;;
-	
+	 "help"|"usage")
+	    usage
+	;;	
 	#stack dump in stdout
     "dump"|"d"|"stack")
 		#for each elements in the stack
