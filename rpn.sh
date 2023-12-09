@@ -3,25 +3,35 @@
 #School project
 
 #banner
-figlet "GIT USER :) "
+figlet "GIT USER :)"
 
+#Color declaration
+Black='\033[0;30m'        # Black
+BRed='\033[1;31m'          # Red
+Green='\033[0;32m'        # Green
+BYellow='\033[1;33m'       # Yellow
+Blue='\033[0;34m'         # Blue
+BPurple='\033[1;35m'       # Purple
+BCyan='\033[1;36m'         # Cyan
+White='\033[0;37m'        # White
+NC='\033[0m' # No Color
 
 args=@$
 
 #Usage function triggered when there's an error in user input
 usage(){
-    echo "[+]-----------------------------------[+]"q
+    echo -e "${BRed}[+]-----------------------------------[+]${NC}"
     echo -e "   Operators : +, -, *, /, %, ^\n"
 	echo -e "   Or : add, sub, mul, div, modulo, power, \n"
-    echo -e "[+]-----------------------------------[+]\n"
+    echo -e "${BRed}[+]-----------------------------------[+]${NC}\n"
     echo -e "Commands : help, dump, drop, exit, swap, dup, clear\n"
-    echo -e "Usage: bash rpn.sh\n"
+    echo -e "Usage: ${BYellow}bash rpn.sh${NC}\n"
     echo -e "[+] >>> 25\n"
     echo -e "[+] >>> 60\n"
     echo -e "[+] >>> swap\n"
     echo -e "[+] >>> dump\n"
-    echo -e "[+] >>> 60\n"
-    echo -e "[+] >>> 25\n"
+    echo -e "${BCyan}60${NC}\n"
+    echo -e "${BCyan}25${NC} \n"
 	echo -e "help, print usage \n"
 	echo -e "dump, print the stack on STDOUT \n"
 	echo -e "drop|clear, clear the stack \n"
@@ -128,7 +138,7 @@ while true; do
 				stack+=("$result")
 
 		else
-				echo "Error : Insufficient operands for addition"
+				echo -e "${BRed}Error : Insufficient operands for addition${NC}"
 		fi
 
 	;;
@@ -141,7 +151,7 @@ while true; do
 			stack+=("$result")
 		#STDERR
 		else
-				echo "Error : Insufficient operands for subtraction."
+				echo -e "${BRed}Error : Insufficient operands for subtraction.${NC}"
 		fi
 	;;
     "*"|"mul"|"multiply")
@@ -156,13 +166,13 @@ while true; do
 				stack+=("$result")
 		#STDERR
 		else
-			echo "Error : Insufficient operands for multiplication"
+			echo -e "${BRed}Error : Insufficient operands for multiplication${NC}"
 		fi
 	;;
     	"/"|"div")
 		#anti divide by 0 STDERR
 		if [ "${stack[-1]}" == 0 ]; then
-			echo "why the f@!# do u divide by 0 ??????"
+			echo -e "${BRed}why the f@!# do u divide by 0 ??????${NC}"
 		fi
 
 		if [ ${#stack[@]} -ge 2 ]; then
@@ -173,7 +183,7 @@ while true; do
 			result=$(divide "$operand1" "$operand2")
 				stack+=("$result")
 		else
-			echo "Error : Insufficient operands for division"
+			echo -e "${BRed}Error : Insufficient operands for division${NC}"
 		fi
 	;;
     "%"|"m"|"modulo")
@@ -186,7 +196,7 @@ while true; do
 			result=$(modulo "$operand1" "$operand2")
 				stack+=("$result")
 		else
-			echo "Error : Insufficient operands for modulo"
+			echo -e "${BRed}Error : Insufficient operands for modulo${NC}"
 		fi
 	;;
     "^"|"power"|"**")
@@ -199,11 +209,11 @@ while true; do
 			result=$(power "$operand1" "$operand2")
 				stack+=("$result")
 		else
-			echo "Error : Insufficient operands for power"
+			echo -e "${BRed}Error : Insufficient operands for power${NC}"
 		fi
 	;;
     "q"|"quit"|"exit")
-		echo -e "Exiting..........\n"
+		echo -e "${BPurple}Exiting..........${NC}\n"
 		figlet "BYEBYE"
 		exit 0
     ;;
@@ -211,11 +221,12 @@ while true; do
     "sum"|"somme")
     	sum
 	;;
+	
 	#stack dump in stdout
     "dump"|"d"|"stack")
 		#for each elements in the stack
 		for item in "${stack[@]}"; do
-				echo "$item"
+				echo -e "${BCyan}$item${NC}"
 		done
     ;;
     "clear"|"drop")
@@ -230,17 +241,17 @@ while true; do
 		if [ ${#stack[@]} -ge 1 ]; then
 			stack+=("${stack[-1]}")
 		else
-			echo "Error : Insufficient operands for duplicate"
+			echo -e "${BRed}Error : Insufficient operands for duplicate${NC}"
 		fi
 		;;
 		#default
 		*)
 		#STDERR
-		#rregex negative number and float
+		#regex negative number and float
 		if [[ "$input" =~ ^-?[0-9]+(\.[0-9]+)?$ ]]; then
 			stack+=("$input")
 		else
-				echo -e "Error : Invalid input. Not an integer, float or a sign\n"
+				echo -e "${BRed}Error : Invalid input. Not an integer, float or a sign${NC}\n"
 				usage
 			fi
         ;;
