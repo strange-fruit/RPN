@@ -248,7 +248,7 @@ Feel free to contribute. Do what you want with this project :)
 
   
 
-Distributed under the MIT License. See `LICENSE` for more information.
+Distributed under the GNU GPLv3 License. See `LICENSE` for more information.
 
   
   
